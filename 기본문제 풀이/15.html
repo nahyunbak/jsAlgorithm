@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        const Len = s.length;
+        const midLen = parseInt(Len / 2);
+
+        if (Len % 2 === 0) {
+          return s.slice(midLen - 1, midLen + 1);
+        } else {
+          return s.slice(midLen, midLen + 1);
+        }
+      }
+      console.log(solution("study"));
+    </script>
+  </body>
+</html>
