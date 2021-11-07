@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //완-벽
+      function solution(s, t) {
+        const newStrArr = s.split("");
+        let answer = [];
+
+        for (let i = 0; i < newStrArr.length; i++) {
+          let minDistance = 101;
+          for (let j = 0; j < newStrArr.length; j++) {
+            if (newStrArr[j] === t) {
+              minDistance = Math.min(Math.abs(i - j), minDistance);
+            }
+          }
+          answer.push(minDistance);
+        }
+
+        return answer.join(" ");
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>

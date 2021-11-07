@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //내 정답
+      function solution(s) {
+        const newStrArr = s.split("");
+        let answer = [];
+        let temp = "";
+        newStrArr.map((item) => {
+          if (temp === item) {
+            answer[answer.length - 1] += 1;
+          } else {
+            answer.push(item);
+            answer.push(1);
+            temp = item;
+          }
+        });
+        answer = answer.filter((item) => item !== 1);
+        return answer.join("");
+      }
+      //강사 정답
+
+      function solution2(s) {
+        let answer = "";
+        let cnt = 1;
+        s = s + " ";
+        for (let i = 0; i < s.length - 1; i++) {
+          if (s[i] === s[i + 1]) cnt++;
+          else {
+            answer += s[i];
+            if (cnt > 1) answer += String(cnt);
+            cnt = 1;
+          }
+        }
+        return answer;
+      }
+      let str = "KKHSSSSSSSE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

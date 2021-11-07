@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let sumArr = [];
+        let lrTemp = 0;
+        let rlTemp = 0;
+        const n = arr.length;
+        for (let i = 0; i < n; i++) {
+          let rowTemp = 0;
+          for (let j = 0; j < n; j++) {
+            rowTemp += arr[i][j];
+
+            if (i + j === n + 1) {
+              lrTemp += arr[i][j];
+            }
+          }
+          sumArr.push(lrTemp);
+          lrTemp = 0;
+
+          sumArr.push(rowTemp);
+          rowTemp = 0;
+        }
+
+        for (let j = 0; j < n; j++) {
+          let colTemp = 0;
+          for (let i = 0; i < n; i++) {
+            colTemp += arr[j][i];
+          }
+          sumArr.push(colTemp);
+          colTemp = 0;
+        }
+
+        sumArr.push(rlTemp);
+        console.log(sumArr);
+        const answer = Math.max(...sumArr);
+        return answer;
+      }
+
+      let arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //정답
+      function solution(s) {
+        const newString = s.toLowerCase().replace(/[^a-z]/g, "");
+        if (newString.split("").reverse().join("") === newString) {
+          return "YES";
+        } else {
+          return "NO";
+        }
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
