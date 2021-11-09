@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0;
+        product.sort(function (a, b) {
+          return a[0] + a[1] - (b[0] + b[1]);
+        });
+
+        console.log(product);
+        //모든 상품을 할인한 가격 중, answer 값이 가장 큰 것을 구해야 함.
+        let maxNum = 0;
+        //i는 할인한 타겟 /j는 더하기
+        let temp = 0;
+        for (let i = 0; i < product.length; i++) {
+          for (let j = 0; j < product.length; j++) {
+            if (temp <= m) {
+              if (j !== i) {
+                temp += product[j][0] + product[j][1];
+                maxNum += 1;
+              } else {
+                temp += product[j][0] * 0.5 + product[j][1];
+                maxNum += 1;
+              }
+            } else {
+              answer = Math.max(answer, maxNum);
+              maxNum = 0;
+              temp = 0;
+              break;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>
