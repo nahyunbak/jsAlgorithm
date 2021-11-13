@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = [];
+        function dfs(L) {
+          if (L === 0) return;
+          else {
+            dfs(parseInt(L / 2));
+            answer.push(L % 2);
+          }
+        }
+        dfs(n);
+        return answer.join("");
+      }
+
+      console.log(solution(11));
+    </script>
+  </body>
+</html>
+
+    if(s1.indexOf('pp')===0){
+        for (let i=0; i<4;i++){
+            if( arrS1[2+i]==='b'){
+                arrS1Graph.push(1)
+            } else {
+                 arrS1Graph.push(0)
+            }
+        }
+        if(s1
+    }
+    //p가 처음 나오면, 다른 p가 나올 때까지 4개씩 뭉터기로 b(1)와 w(0)를 넣는다. 
+    else if(s1.indexOf('p')===0){
+        for (let i=0; i<4;i++){
+            if (arrS1[1+i]==='p'){
+                
+                for (let j=0; j<4;j++){
+                    if( arrS1[1+i+j]==='b'){
+                        arrS1Graph.push(1)
+                    } else {
+                        arrS1Graph.push(0)
+                    }
+                }
+                
+            }
+            if( arrS1[1+i]==='b'){
+                arrS1Graph.push(1, 1, 1, 1);
+            } else {
+                arrS1Graph.push(0, 0, 0, 0);
+            }
+        }
+        
+    }
+    console.log(arrS1Graph)
